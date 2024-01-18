@@ -8,7 +8,7 @@ oauth = OAuthService()
 def read_root():
     return {"Hello": "World"}
 
-@app.put("/OAuth/new")
+@app.get("/OAuth/new")
 def new_oauth():
     return(oauth.getRequestToken())
 

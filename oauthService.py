@@ -12,7 +12,7 @@ class OAuthService():
         self.base_authorization_url = 'https://api.twitter.com/oauth/authorize'
         self.access_token_url = 'https://api.twitter.com/oauth/access_token'
         
-        self.oauth = OAuth1(self.client_key, client_secret=self.client_secret)
+        self.oauth = OAuth1(self.client_key, client_secret=self.client_secret, callback_uri="http://54.92.197.99/OAuth/createNewToken")
     
     def getRequestToken(self):
         r = requests.post(url=self.request_token_url, auth=self.oauth)
@@ -20,6 +20,7 @@ class OAuthService():
         
         resource_owner_key = str(credentials.get(b'oauth_token')[0], encoding='utf-8')
         resource_owner_secret = str(credentials.get(b'oauth_token_secret')[0], encoding='utf-8')
+        print(str(credentials.get(b'oauth_callback_confirmed')[0], encoding='utf-8'))
         
         authorization_url = self.base_authorization_url + '?oauth_token=' + resource_owner_key
         

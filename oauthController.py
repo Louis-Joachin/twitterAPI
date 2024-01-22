@@ -17,7 +17,7 @@ def new_oauth_token(temp_oauth_token,oauth_verifier):
     print("temp_oauth_token : " + temp_oauth_token +" ,oauth_verifier :"+oauth_verifier)
     infos = oauth.getUserInfos(temp_oauth_token)
     result = oauth.getOAuthToken(infos["resource_owner_key"],infos["resource_owner_secret"],oauth_verifier)
-    oauth.updateUser(infos[infos["id"]],result)
+    oauth.updateUser(infos["id"],result)
     return
     
     

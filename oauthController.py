@@ -12,7 +12,7 @@ def read_root():
 def new_oauth():
     return(oauth.getRequestToken())
 
-@app.post("/OAuth/createNewToken")
+@app.get("/OAuth/createNewToken")
 def new_oauth_token(temp_oauth_token,oauth_verifier):
     print("temp_oauth_token : " + temp_oauth_token +" ,oauth_verifier :"+oauth_verifier)
     infos = oauth.getUserInfos(temp_oauth_token)
@@ -21,6 +21,6 @@ def new_oauth_token(temp_oauth_token,oauth_verifier):
     return
     
     
-    
+
     
     
